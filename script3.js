@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const showTextButton = document.getElementById('showTextButton');
-    const copyTextButton = document.getElementById('copyTextButton');
+    const copyTextButtonTop = document.getElementById('copyTextButtonTop');
+    const copyTextButtonBottom = document.getElementById('copyTextButtonBottom');
     const displayText = document.getElementById('displayText');
     const copyNotification = document.getElementById('copyNotification');
     const complianceMessage = document.getElementById('complianceMessage');
@@ -88,10 +89,14 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
         displayText.innerHTML = generatedText;
-        copyTextButton.style.display = 'block'; // Show the copy button
+        copyTextButtonTop.style.display = 'block';
+        copyTextButtonBottom.style.display = 'block';
     });
 
-    copyTextButton.addEventListener('click', function () {
+    copyTextButtonTop.addEventListener('click', function () {
+        copyToClipboard(displayText);
+    });
+    copyTextButtonBottom.addEventListener('click', function () {
         copyToClipboard(displayText);
     });
 
