@@ -156,6 +156,18 @@ body {
   margin-right: 10px;
   cursor: pointer;
   flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.content form input[type="checkbox"]:checked::after {
+  content: '✔';
+  font-size: 16px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Styling for checked checkboxes */
@@ -289,7 +301,8 @@ body {
 
 /* Styling for the generate and copy buttons */
 .content form.generate-button button,
-#copyTextButton {
+#copyTextButtonTop,
+#copyTextButtonBottom {
   padding: 15px 20px;
   margin-top: 30px;
   background-color: #d14164;
@@ -303,19 +316,29 @@ body {
 
 /* Hover effects for buttons */
 .content form.generate-button button:hover,
-#copyTextButton:hover {
+#copyTextButtonTop:hover,
+#copyTextButtonBottom {
   background-color: #be3e5d;
 }
 
 /* Custom margin for the copy button */
-#copyTextButton {
+#copyTextButtonTop {
+  margin-top: 30px;
+  margin-left: 60px;
+  margin-bottom: -20px;
+  font-size: 16px;
+}
+
+/* Custom margin for the copy button */
+#copyTextButtonBottom {
   margin-top: 0px;
   margin-left: 60px;
   font-size: 16px;
 }
 
 /* Hover effect for the copy button */
-#copyTextButton:hover {
+#copyTextButtonTop:hover
+#copyTextButtonBottom:hover {
   background-color: #be3e5d;
 }
 
@@ -399,7 +422,7 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Modal Content disclaimer */
+/* Apply the disclaimer styling to the modal */
 .modal-content.disclaimer {
   background-color: #f9f9f9;
   padding-left: 30px;
@@ -470,6 +493,6 @@ body {
   color: #333;
   cursor: pointer;
   display: flex;
-  align-items: center;
+  align-items: center; /* Ensures label and checkbox are aligned horizontally */
   line-height: 1.3;
 }
