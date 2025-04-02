@@ -299,7 +299,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Styling for the generate and copy buttons */
+/* Styling for the generate and  buttons */
 .content form.generate-button button,
 #copyTextButtonTop,
 #copyTextButtonBottom {
@@ -337,7 +337,7 @@ body {
 }
 
 /* Hover effect for the copy button */
-#copyTextButtonTop:hover
+#copyTextButtonTop:hover,
 #copyTextButtonBottom:hover {
   background-color: #be3e5d;
 }
