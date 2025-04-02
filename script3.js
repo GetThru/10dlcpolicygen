@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const positiveMessage = document.getElementById('positiveMessage');
     const sellRentYes = document.getElementById('sellRentYes');
     const sellRentNo = document.getElementById('sellRentNo');
-    const disclaimerAgree = document.getElementById('disclaimerAgree');
 
     // Modal variables
     const modal = document.getElementById('disclaimerModal');
