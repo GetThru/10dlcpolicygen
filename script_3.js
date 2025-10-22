@@ -90,6 +90,32 @@ document.addEventListener('DOMContentLoaded', function () {
         displayText.innerHTML = generatedText;
         copyTextButtonTop.style.display = 'block';
         copyTextButtonBottom.style.display = 'block';
+
+        // --- Send form data to Google Sheets ---
+        fetch("https://script.google.com/a/macros/getthru.io/s/AKfycbydr8zNfXbiunr6cTip1bAIsysM3-FgyyixjCdSev0-86BS8Zfgl4UdP8NQMIzOt28v/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            organization,
+            websiteURL,
+            websiteName,
+            state,
+            sellRent: document.querySelector('input[name="sellRent"]:checked')?.value || '',
+            personalInfo: personalInfoList,
+            usage: usageList,
+            contact: {
+            email: emailInput,
+            website: websiteInput,
+            phone: phoneInput,
+            address: addressInput
+            }
+        })
+        })
+        .then(response => response.text())
+        .then(result => console.log("Submission successful:", result))
+        .catch(error => console.error("Error submitting to Google Sheets:", error));
+
+        
     });
 
     copyTextButtonTop.addEventListener('click', function () {
@@ -292,3 +318,4 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>Last Updated: ${dateString}</p>`;
     }
 });
+
