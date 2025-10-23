@@ -92,10 +92,10 @@ document.addEventListener('DOMContentLoaded', function () {
         copyTextButtonBottom.style.display = 'block';
 
         // --- Send form data to Google Sheets ---
-        fetch("https://script.google.com/macros/s/AKfycbzr7GWTUeNDPf93qpmhiJiNeejwRi4wG8v56XG8tJjLsAhEidcyg74delX4OXKb3zmf/exec", {
+        fetch("https://script.google.com/macros/s/AKfycbyh-SdqtPhJ5jCD-ilgsSa6b6Rk9-fslkTPXMLO6R9yU4Qq_SBt4u_tX-nKiUPgoGcC/exec", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+          headers: { "Content-Type": "text/plain;charset=utf-8" }, // <-- key
+          body: JSON.stringify({
             organization,
             websiteURL,
             websiteName,
@@ -103,17 +103,12 @@ document.addEventListener('DOMContentLoaded', function () {
             sellRent: document.querySelector('input[name="sellRent"]:checked')?.value || '',
             personalInfo: personalInfoList,
             usage: usageList,
-            contact: {
-            email: emailInput,
-            website: websiteInput,
-            phone: phoneInput,
-            address: addressInput
-            }
+            contact: { email: emailInput, website: websiteInput, phone: phoneInput, address: addressInput }
+          })
         })
-        })
-        .then(response => response.text())
-        .then(result => console.log("Submission successful:", result))
-        .catch(error => console.error("Error submitting to Google Sheets:", error));
+        .then(r => r.text())
+        .then(t => console.log("Submission successful:", t))
+        .catch(err => console.error("Error submitting to Google Sheets:", err));
 
         
     });
@@ -318,6 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>Last Updated: ${dateString}</p>`;
     }
 });
+
 
 
 
