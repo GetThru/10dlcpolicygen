@@ -102,12 +102,13 @@ document.addEventListener('DOMContentLoaded', function () {
             state,
             sellRent: document.querySelector('input[name="sellRent"]:checked')?.value || '',
             personalInfo: personalInfoList,
-            usage: usageList.replace(/<[^>]+>/g, '')
-                .split(':')
-                .filter((_, i) => i % 2 === 1)
-                .map(str => str.split('.')[0])
-                .join(', ')
-                .trim(),
+            usage: usageList
+              .replace(/<strong>(.*?)<\/strong>:/g, '$1')
+              .replace(/<[^>]+>/g, '')
+              .split('.')
+              .map(str => str.trim())
+              .filter(str => str.length)
+              .join(', '),
             contact: { email: emailInput, website: websiteInput, phone: phoneInput, address: addressInput }
           })
         })
@@ -318,6 +319,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>Last Updated: ${dateString}</p>`;
     }
 });
+
 
 
 
