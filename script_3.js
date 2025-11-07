@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         copyTextButtonBottom.style.display = 'block';
 
         // --- Send form data to Google Sheets ---
-        fetch("https://script.google.com/macros/s/AKfycbwcr0C2QPHgxKzx3D8JiJHtDxhdP_dhakZLsTk-coSTT16zrMxHfy_2-JpITeigIF8T/exec", {
+        fetch("https://script.google.com/macros/s/AKfycbxppcuo-ca459zTxEs-L5Wt-SzDq0lSy70EvKu9V3ooXyKFi5KSTKAk_172YUQb8mFP/exec", {
         method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" }, // <-- key
           body: JSON.stringify({
@@ -313,6 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>Last Updated: ${dateString}</p>`;
     }
 });
+
 
 
 
