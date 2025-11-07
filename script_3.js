@@ -92,10 +92,11 @@ document.addEventListener('DOMContentLoaded', function () {
         copyTextButtonBottom.style.display = 'block';
 
         // --- Send form data to Google Sheets ---
-        fetch("https://script.google.com/macros/s/AKfycbxppcuo-ca459zTxEs-L5Wt-SzDq0lSy70EvKu9V3ooXyKFi5KSTKAk_172YUQb8mFP/exec", {
+        fetch("https://script.google.com/macros/s/AKfycbwJymseV5OtsCE7QhYp3wtk1ABRQSPhWWHlyit53gEbafOZ-70JJ0R8qkdvNTBYRvnM/exec", {
         method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" }, // <-- key
           body: JSON.stringify({
+            toolName: "PPG",
             organization,
             websiteURL,
             websiteName,
@@ -313,6 +314,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <p>Last Updated: ${dateString}</p>`;
     }
 });
+
 
 
 
